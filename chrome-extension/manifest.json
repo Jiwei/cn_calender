@@ -1,8 +1,10 @@
 {
   "manifest_version": 3,
   "name": "XIALI - 中国农历",
-  "version": "0.1.0",
-  "description": "Native Chinese Lunisolar Calendar (中国农历) with dual calendar view",
+  "version": "1.0.0",
+  "description": "Native Chinese Lunisolar Calendar (中国农历) with dual calendar view, traditional holidays, 24 solar terms (节气), and Gan-Zhi (干支) dating",
+  "author": "Jiwei",
+  "homepage_url": "https://jiwei.github.io/cn_calender/",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",

@@ -1,0 +1,53 @@
+// Chinese month names
+const MONTH_NAMES = [
+  '正月', '二月', '三月', '四月', '五月', '六月',
+  '七月', '八月', '九月', '十月', '冬月', '腊月'
+];
+
+// Chinese day names
+const DAY_NAMES = [
+  '初一', '初二', '初三', '初四', '初五', '初六', '初七', '初八', '初九', '初十',
+  '十一', '十二', '十三', '十四', '十五', '十六', '十七', '十八', '十九', '二十',
+  '廿一', '廿二', '廿三', '廿四', '廿五', '廿六', '廿七', '廿八', '廿九', '三十'
+];
+
+// Chinese traditional holidays (lunar calendar based)
+// Format: 'month-day': 'holiday name'
+// Note: 除夕 is handled specially in LunarCalendarService (last day of 腊月)
+const LUNAR_HOLIDAYS = {
+  '1-1': '春节',
+  '1-15': '元宵节',
+  '2-2': '龙抬头',
+  '3-3': '上巳节',
+  '5-5': '端午节',
+  '7-7': '七夕节',
+  '7-15': '中元节',
+  '8-15': '中秋节',
+  '9-9': '重阳节',
+  '10-1': '寒衣节',
+  '10-15': '下元节',
+  '12-8': '腊八节',
+  '12-23': '小年'
+};
+
+// Gregorian month names
+const GREGORIAN_MONTHS = [
+  '1月', '2月', '3月', '4月', '5月', '6月',
+  '7月', '8月', '9月', '10月', '11月', '12月'
+];
+
+// Weekday names (Sunday first)
+const WEEKDAYS = ['日', '一', '二', '三', '四', '五', '六'];
+
+// Support both CommonJS and ES6 modules
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    MONTH_NAMES,
+    DAY_NAMES,
+    LUNAR_HOLIDAYS,
+    GREGORIAN_MONTHS,
+    WEEKDAYS
+  };
+}
+
+export { MONTH_NAMES, DAY_NAMES, LUNAR_HOLIDAYS, GREGORIAN_MONTHS, WEEKDAYS };

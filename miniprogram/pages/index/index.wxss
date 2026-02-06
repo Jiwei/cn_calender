@@ -1,0 +1,227 @@
+/**
+ * XIALI Mini Program - Main Page Styles
+ */
+
+.container {
+  padding: 30rpx;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+/* View Toggle */
+.view-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 16rpx;
+  margin-bottom: 30rpx;
+}
+
+.toggle-btn {
+  padding: 12rpx 40rpx;
+  font-size: 28rpx;
+  border: 2rpx solid var(--border-color);
+  border-radius: 40rpx;
+  color: var(--text-light);
+  background-color: transparent;
+}
+
+.toggle-btn.active {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+/* Year Title */
+.year-title {
+  font-size: 48rpx;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 20rpx;
+}
+
+.huangdi-year {
+  font-size: 28rpx;
+  font-weight: 400;
+  color: var(--text-light);
+}
+
+/* Quick Navigation */
+.quick-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.select-group {
+  display: flex;
+  gap: 12rpx;
+}
+
+.nav-select {
+  padding: 10rpx 16rpx;
+  font-size: 24rpx;
+  border: 2rpx solid var(--border-color);
+  border-radius: 8rpx;
+  background-color: white;
+  color: var(--text-color);
+}
+
+.today-btn {
+  padding: 10rpx 20rpx;
+  font-size: 24rpx;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 8rpx;
+}
+
+.today-btn.hidden {
+  visibility: hidden;
+}
+
+/* Month Navigation */
+.month-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40rpx;
+}
+
+.month-title {
+  font-size: 36rpx;
+  font-weight: 500;
+  min-width: 160rpx;
+  text-align: center;
+}
+
+.nav-btn {
+  padding: 16rpx 32rpx;
+  font-size: 28rpx;
+  border: 2rpx solid var(--border-color);
+  border-radius: 8rpx;
+  color: var(--text-color);
+  background-color: white;
+}
+
+/* Calendar */
+.calendar {
+  background: white;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+  padding: 30rpx;
+}
+
+/* Weekday Header */
+.weekday-header {
+  display: flex;
+  margin-bottom: 16rpx;
+}
+
+.weekday-cell {
+  flex: 1;
+  text-align: center;
+  font-size: 26rpx;
+  font-weight: 500;
+  color: var(--text-light);
+  padding: 16rpx 0;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 40rpx;
+  color: var(--text-light);
+  font-size: 26rpx;
+}
+
+.tip-btn {
+  display: inline-block;
+  margin-top: 20rpx;
+  padding: 16rpx 40rpx;
+  font-size: 28rpx;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 40rpx;
+}
+
+/* Tip Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay.show {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 24rpx;
+  padding: 50rpx;
+  width: 80%;
+  max-width: 560rpx;
+  text-align: center;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20rpx;
+  right: 30rpx;
+  font-size: 48rpx;
+  color: var(--text-light);
+  line-height: 1;
+}
+
+.modal-title {
+  font-size: 40rpx;
+  color: var(--primary-color);
+  margin-bottom: 16rpx;
+  font-weight: 600;
+}
+
+.modal-desc {
+  font-size: 28rpx;
+  color: var(--text-light);
+  margin-bottom: 30rpx;
+}
+
+.qr-code {
+  width: 360rpx;
+  height: 360rpx;
+  margin: 0 auto;
+  border: 2rpx solid var(--border-color);
+  border-radius: 16rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qr-code image {
+  width: 100%;
+  height: 100%;
+}
+
+.qr-placeholder {
+  font-size: 24rpx;
+  color: var(--text-light);
+  padding: 30rpx;
+  line-height: 1.5;
+  white-space: pre-line;
+}

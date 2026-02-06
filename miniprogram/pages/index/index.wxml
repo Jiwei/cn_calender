@@ -1,0 +1,59 @@
+<!--
+  XIALI Mini Program - Main Page Template
+-->
+<view class="container">
+  <!-- Header -->
+  <view class="header">
+    <!-- View Toggle -->
+    <view class="view-toggle">
+      <view class="toggle-btn {{viewMode === 'lunar' ? 'active' : ''}}" bindtap="onViewToggle" data-mode="lunar">农历</view>
+      <view class="toggle-btn {{viewMode === 'gregorian' ? 'active' : ''}}" bindtap="onViewToggle" data-mode="gregorian">公历</view>
+    </view>
+
+    <!-- Year Title -->
+    <view class="year-title">
+      <text>{{yearTitle}}</text>
+      <text wx:if="{{showHuangdiYear}}" class="huangdi-year">{{huangdiYearText}}</text>
+    </view>
+
+    <!-- Quick Navigation -->
+    <view class="quick-nav">
+      <view class="select-group">
+        <picker mode="selector" range="{{yearOptions}}" range-key="label" value="{{yearIndex}}" bindchange="onYearChange">
+          <view class="nav-select">{{yearOptions[yearIndex].label}}</view>
+        </picker>
+        <picker mode="selector" range="{{monthOptions}}" range-key="label" value="{{monthIndex}}" bindchange="onMonthChange">
+          <view class="nav-select">{{monthOptions[monthIndex].label}}</view>
+        </picker>
+      </view>
+      <view wx:if="{{showTodayBtn}}" class="today-btn" bindtap="onTodayTap">今天</view>
+      <view wx:else class="today-btn hidden">今天</view>
+    </view>
+
+    <!-- Month Navigation -->
+    <view class="month-nav">
+      <view class="nav-btn" bindtap="onPrevMonth">◄ 上月</view>
+      <view class="month-title">{{monthTitle}}</view>
+      <view class="nav-btn" bindtap="onNextMonth">下月 ►</view>
+    </view>
+  </view>
+
+  <!-- Calendar -->
+  <view class="calendar">
+    <!-- Weekday Header (Gregorian only) -->
+    <view wx:if="{{showWeekdays}}" class="weekday-header">
+      <view wx:for="{{weekdays}}" wx:key="*this" class="weekday-cell">{{item}}</view>
+    </view>
+
+    <!-- Calendar Grid -->
+    <calendar-grid
+      view-mode="{{viewMode}}"
+      days="{{days}}"
+    />
+  </view>
+
+  <!-- Footer -->
+  <view class="footer">
+    <text>XIALI v0.1</text>
+  </view>
+</view>

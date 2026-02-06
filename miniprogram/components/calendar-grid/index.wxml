@@ -1,0 +1,45 @@
+<!--
+  XIALI Mini Program - Calendar Grid Component Template
+-->
+<view class="calendar-grid">
+  <!-- Lunar View -->
+  <block wx:if="{{viewMode === 'lunar'}}">
+    <view
+      wx:for="{{days}}"
+      wx:key="lunarDay"
+      class="day-cell {{item.isToday ? 'today' : ''}} {{item.holiday ? 'holiday' : ''}} {{item.jieQi && !item.holiday ? 'jieqi' : ''}}"
+      bindtap="onDayTap"
+      data-index="{{index}}"
+    >
+      <view class="lunar-day">{{item.lunarDayName}}</view>
+      <view class="secondary-text">
+        <text wx:if="{{item.holiday}}" class="holiday-name">{{item.holiday}}</text>
+        <text wx:elif="{{item.jieQi}}" class="jieqi-name">{{item.jieQi}}</text>
+      </view>
+      <view class="gregorian-date">{{item.gregorianMonth}}/{{item.gregorianDay}}</view>
+      <view wx:if="{{item.isToday}}" class="today-badge">今</view>
+    </view>
+  </block>
+
+  <!-- Gregorian View -->
+  <block wx:else>
+    <view
+      wx:for="{{days}}"
+      wx:key="index"
+      class="day-cell {{item.empty ? 'empty' : ''}} {{item.isToday ? 'today' : ''}} {{item.holiday ? 'holiday' : ''}} {{item.jieQi && !item.holiday ? 'jieqi' : ''}} {{item.isFirstDayOfLunarMonth ? 'lunar-first' : ''}}"
+      bindtap="onDayTap"
+      data-index="{{index}}"
+    >
+      <block wx:if="{{!item.empty}}">
+        <view class="gregorian-day">{{item.gregorianDay}}</view>
+        <view class="secondary-text">
+          <text wx:if="{{item.holiday}}" class="holiday-name">{{item.holiday}}</text>
+          <text wx:elif="{{item.jieQi}}" class="jieqi-name">{{item.jieQi}}</text>
+          <text wx:elif="{{item.isFirstDayOfLunarMonth}}" class="lunar-month-name">{{item.lunarMonthName}}</text>
+          <text wx:else class="lunar-day-small">{{item.lunarDayName}}</text>
+        </view>
+        <view wx:if="{{item.isToday}}" class="today-badge">今</view>
+      </block>
+    </view>
+  </block>
+</view>

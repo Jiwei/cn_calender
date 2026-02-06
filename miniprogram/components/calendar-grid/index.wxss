@@ -1,0 +1,134 @@
+/**
+ * XIALI Mini Program - Calendar Grid Component Styles
+ */
+
+.calendar-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+}
+
+.day-cell {
+  width: calc((100% - 48rpx) / 7);
+  height: 120rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1rpx solid var(--border-color);
+  border-radius: 8rpx;
+  padding: 8rpx 4rpx;
+  position: relative;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.day-cell.empty {
+  border: none;
+  background: transparent;
+}
+
+.day-cell.today {
+  background-color: var(--today-bg);
+  border: 2rpx solid var(--today-border);
+}
+
+.day-cell.holiday {
+  background-color: #fff5f5;
+}
+
+.day-cell.jieqi {
+  background-color: #f5fff5;
+}
+
+.day-cell.lunar-first {
+  border-color: var(--secondary-color);
+}
+
+/* Today Badge */
+.today-badge {
+  position: absolute;
+  top: 2rpx;
+  right: 4rpx;
+  font-size: 16rpx;
+  color: var(--today-border);
+  font-weight: 600;
+}
+
+/* Lunar View Styles */
+.lunar-day {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: var(--text-color);
+  line-height: 36rpx;
+  height: 36rpx;
+}
+
+.day-cell.holiday .lunar-day {
+  color: var(--holiday-color);
+}
+
+/* Secondary text row - fixed height to prevent jumping */
+.secondary-text {
+  height: 32rpx;
+  line-height: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gregorian-date {
+  font-size: 18rpx;
+  color: var(--text-light);
+  line-height: 28rpx;
+  height: 28rpx;
+}
+
+/* Gregorian View Styles */
+.gregorian-day {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: var(--text-color);
+  line-height: 36rpx;
+  height: 36rpx;
+}
+
+.day-cell.holiday .gregorian-day {
+  color: var(--holiday-color);
+}
+
+.lunar-day-small {
+  font-size: 18rpx;
+  color: var(--text-light);
+  height: 32rpx;
+  line-height: 32rpx;
+}
+
+.lunar-month-name {
+  font-size: 18rpx;
+  color: var(--primary-color);
+  font-weight: 500;
+  height: 32rpx;
+  line-height: 32rpx;
+}
+
+/* Holiday and Jieqi Names */
+.holiday-name {
+  font-size: 16rpx;
+  color: var(--holiday-color);
+  font-weight: 500;
+  height: 32rpx;
+  line-height: 32rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.jieqi-name {
+  font-size: 16rpx;
+  color: var(--jieqi-color);
+  font-weight: 500;
+  height: 32rpx;
+  line-height: 32rpx;
+}

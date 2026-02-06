@@ -1,0 +1,9 @@
+{
+  "name": "xiali-miniprogram",
+  "version": "0.1.0",
+  "description": "XIALI Chinese Lunisolar Calendar Mini Program",
+  "main": "app.js",
+  "dependencies": {
+    "lunar-javascript": "^1.6.12"
+  }
+}

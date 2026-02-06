@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "XIALI 中国农历",
+    "navigationBarBackgroundColor": "#8b0000",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#faf8f5",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

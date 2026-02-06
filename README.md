@@ -35,6 +35,11 @@ XIALI is a calendar app showing native Chinese Lunisolar calendar (中国农历)
 ### Web App
 Browser-based web application with full feature support.
 
+**Live Demo:** https://jiwei.github.io/cn_calender/
+
+### Chrome Extension
+Browser extension for quick access to the Chinese calendar from your browser toolbar.
+
 ### WeChat Mini Program
 Native WeChat mini program with the same features, sharing unified core logic with the web app.
 
@@ -64,6 +69,13 @@ cn_calender/
 │       ├── app.js                    # Web-specific app logic
 │       └── CalendarGrid.js           # DOM rendering
 │
+├── chrome-extension/                 # Chrome extension
+│   ├── manifest.json                 # Extension manifest
+│   ├── popup.html                    # Popup UI
+│   ├── popup.js                      # Popup logic
+│   ├── popup.css                     # Popup styles
+│   └── icons/                        # Extension icons
+│
 └── miniprogram/                      # WeChat mini program
     ├── app.js                        # Mini program entry
     ├── app.json                      # Global config
@@ -91,6 +103,18 @@ python3 -m http.server 8000
 3. Click "Build npm" in WeChat DevTools
 4. Preview in simulator or scan QR code for device testing
 
+### Chrome Extension
+1. Open Chrome and navigate to `chrome://extensions/`
+2. Enable "Developer mode" (toggle in top right)
+3. Click "Load unpacked"
+4. Select the `chrome-extension/` folder
+5. The extension icon will appear in your toolbar
+
+### Deploy to GitHub Pages
+1. Push your code to GitHub
+2. The GitHub Actions workflow (`.github/workflows/deploy.yml`) will automatically deploy the `web/` folder
+3. Access your app at `https://<username>.github.io/<repo-name>/`
+
 ## Architecture
 
 The project uses a **unified core** architecture:
@@ -101,11 +125,11 @@ The project uses a **unified core** architecture:
 │  - LunarCalendarService.js          │
 │  - constants.js                     │
 └─────────────────────────────────────┘
-              ↙           ↘
-┌─────────────────┐  ┌─────────────────┐
-│   WEB WRAPPER   │  │ MINIPROGRAM     │
-│   (thin layer)  │  │ WRAPPER (thin)  │
-└─────────────────┘  └─────────────────┘
+          ↙         ↓         ↘
+┌───────────────┐ ┌───────────────┐ ┌───────────────┐
+│  WEB WRAPPER  │ │    CHROME     │ │  MINIPROGRAM  │
+│  (thin layer) │ │   EXTENSION   │ │    WRAPPER    │
+└───────────────┘ └───────────────┘ └───────────────┘
 ```
 
 ### What's Shared (Core)

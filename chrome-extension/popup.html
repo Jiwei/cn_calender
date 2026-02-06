@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>XIALI - 中国农历</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="view-toggle">
+        <button id="lunarViewBtn" class="toggle-btn active">农历</button>
+        <button id="gregorianViewBtn" class="toggle-btn">公历</button>
+      </div>
+      <h1 class="year-title" id="yearTitle"><span id="yearText"></span><span class="huangdi-year" id="huangdiYear"></span></h1>
+      <div class="quick-nav">
+        <div class="select-group">
+          <select id="yearSelect" class="nav-select"></select>
+          <select id="monthSelect" class="nav-select"></select>
+        </div>
+        <button class="today-btn" id="todayBtn">今天</button>
+      </div>
+      <div class="month-nav">
+        <button class="nav-btn" id="prevMonth">◄ 上月</button>
+        <span class="month-title" id="monthTitle"></span>
+        <button class="nav-btn" id="nextMonth">下月 ►</button>
+      </div>
+    </header>
+
+    <main class="calendar">
+      <div class="weekday-header" id="weekdayHeader"></div>
+      <div class="calendar-grid" id="calendarGrid"></div>
+    </main>
+
+    <footer class="footer">
+      <p>XIALI v0.1</p>
+    </footer>
+  </div>
+
+  <script src="lib/lunar.js"></script>
+  <script src="core/constants.js"></script>
+  <script src="core/LunarCalendarService.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

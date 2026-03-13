@@ -251,14 +251,32 @@ function renderLunar() {
   huangdiYear.textContent = ' · ' + calendarService.getHuangdiYear(lunarYear);
   monthTitle.textContent = calendarService.getChineseMonthName(lunarMonth, isLeapMonth);
 
-  // Hide weekday header
-  weekdayHeader.style.display = 'none';
+  // Show weekday header (same as Gregorian view)
+  weekdayHeader.style.display = 'grid';
+  weekdayHeader.innerHTML = '';
+  WEEKDAYS.forEach(day => {
+    const cell = document.createElement('div');
+    cell.className = 'weekday-cell';
+    cell.textContent = day;
+    weekdayHeader.appendChild(cell);
+  });
 
   // Get days
   const days = calendarService.getLunarMonth(lunarYear, lunarMonth, isLeapMonth);
 
   // Render grid
   calendarGrid.innerHTML = '';
+
+  // Add empty padding cells to align first day to its weekday column
+  if (days.length > 0) {
+    const firstDay = days[0];
+    const startWeekday = new Date(firstDay.gregorianYear, firstDay.gregorianMonth - 1, firstDay.gregorianDay).getDay();
+    for (let i = 0; i < startWeekday; i++) {
+      const emptyCell = document.createElement('div');
+      emptyCell.className = 'day-cell empty';
+      calendarGrid.appendChild(emptyCell);
+    }
+  }
 
   days.forEach(day => {
     const cell = document.createElement('div');

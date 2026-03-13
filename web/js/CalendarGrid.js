@@ -13,9 +13,21 @@ class CalendarGrid {
    * Render the calendar grid for a lunar month
    */
   renderLunar(days, todayLunar, currentYear, currentMonth, isLeapMonth) {
-    this.weekdayHeader.innerHTML = '';
-    this.weekdayHeader.style.display = 'none';
+    // Show weekday header (same as Gregorian view)
+    this.renderWeekdayHeader();
+
     this.container.innerHTML = '';
+
+    // Add empty cells to align the first day to its actual weekday column
+    if (days.length > 0) {
+      const firstDay = days[0];
+      const startWeekday = new Date(firstDay.gregorianYear, firstDay.gregorianMonth - 1, firstDay.gregorianDay).getDay();
+      for (let i = 0; i < startWeekday; i++) {
+        const emptyCell = document.createElement('div');
+        emptyCell.className = 'day-cell empty';
+        this.container.appendChild(emptyCell);
+      }
+    }
 
     days.forEach(day => {
       const cell = this.createLunarDayCell(day, todayLunar, currentYear, currentMonth, isLeapMonth);

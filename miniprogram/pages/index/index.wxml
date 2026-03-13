@@ -40,8 +40,8 @@
 
   <!-- Calendar -->
   <view class="calendar">
-    <!-- Weekday Header (Gregorian only) -->
-    <view wx:if="{{showWeekdays}}" class="weekday-header">
+    <!-- Weekday Header -->
+    <view class="weekday-header">
       <view wx:for="{{weekdays}}" wx:key="*this" class="weekday-cell">{{item}}</view>
     </view>
 

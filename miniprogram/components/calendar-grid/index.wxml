@@ -6,18 +6,20 @@
   <block wx:if="{{viewMode === 'lunar'}}">
     <view
       wx:for="{{days}}"
-      wx:key="lunarDay"
-      class="day-cell {{item.isToday ? 'today' : ''}} {{item.holiday ? 'holiday' : ''}} {{item.jieQi && !item.holiday ? 'jieqi' : ''}}"
+      wx:key="index"
+      class="day-cell {{item.empty ? 'empty' : ''}} {{item.isToday ? 'today' : ''}} {{item.holiday ? 'holiday' : ''}} {{item.jieQi && !item.holiday ? 'jieqi' : ''}}"
       bindtap="onDayTap"
       data-index="{{index}}"
     >
-      <view class="lunar-day">{{item.lunarDayName}}</view>
-      <view class="secondary-text">
-        <text wx:if="{{item.holiday}}" class="holiday-name">{{item.holiday}}</text>
-        <text wx:elif="{{item.jieQi}}" class="jieqi-name">{{item.jieQi}}</text>
-      </view>
-      <view class="gregorian-date">{{item.gregorianMonth}}/{{item.gregorianDay}}</view>
-      <view wx:if="{{item.isToday}}" class="today-badge">今</view>
+      <block wx:if="{{!item.empty}}">
+        <view class="lunar-day">{{item.lunarDayName}}</view>
+        <view class="secondary-text">
+          <text wx:if="{{item.holiday}}" class="holiday-name">{{item.holiday}}</text>
+          <text wx:elif="{{item.jieQi}}" class="jieqi-name">{{item.jieQi}}</text>
+        </view>
+        <view class="gregorian-date">{{item.gregorianMonth}}/{{item.gregorianDay}}</view>
+        <view wx:if="{{item.isToday}}" class="today-badge">今</view>
+      </block>
     </view>
   </block>
 

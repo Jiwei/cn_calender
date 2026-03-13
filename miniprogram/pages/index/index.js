@@ -309,15 +309,26 @@ Page({
     const huangdiYearText = ' · ' + this.calendarService.getHuangdiYear(lunarYear);
     const monthTitle = this.calendarService.getChineseMonthName(lunarMonth, isLeapMonth);
 
-    const days = this.calendarService.getLunarMonth(lunarYear, lunarMonth, isLeapMonth);
+    const rawDays = this.calendarService.getLunarMonth(lunarYear, lunarMonth, isLeapMonth);
 
     // Add isToday flag to each day
-    days.forEach(day => {
+    rawDays.forEach(day => {
       day.isToday = lunarYear === todayLunar.year &&
                     lunarMonth === Math.abs(todayLunar.month) &&
                     isLeapMonth === todayLunar.isLeapMonth &&
                     day.lunarDay === todayLunar.day;
     });
+
+    // Add empty padding cells to align first day to its weekday column
+    const days = [];
+    if (rawDays.length > 0) {
+      const firstDay = rawDays[0];
+      const startWeekday = new Date(firstDay.gregorianYear, firstDay.gregorianMonth - 1, firstDay.gregorianDay).getDay();
+      for (let i = 0; i < startWeekday; i++) {
+        days.push({ empty: true });
+      }
+    }
+    days.push(...rawDays);
 
     this.setData({
       yearTitle,
@@ -325,7 +336,7 @@ Page({
       showHuangdiYear: true,
       monthTitle,
       days,
-      showWeekdays: false,
+      showWeekdays: true,
       yearOptions,
       yearIndex,
       monthOptions,
